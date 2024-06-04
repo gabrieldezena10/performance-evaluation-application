@@ -1,16 +1,13 @@
 import { faker } from '@faker-js/faker';
 import { IUserProperties, UserEntity } from '../../user.entity';
+import { UserDataBuilder } from '../../../testing/helpers/user-data-builder';
 describe('User entity unit tests', () => {
   let userProperties: IUserProperties;
   let user: UserEntity;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    userProperties = {
-      name: faker.person.fullName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-    };
+    userProperties = UserDataBuilder().build();
 
     user = new UserEntity(userProperties);
   });
