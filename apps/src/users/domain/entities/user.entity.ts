@@ -15,8 +15,21 @@ export class UserEntity extends Entity<IUserProperties> {
     super(properties, id);
     this.properties.createdAt = this.properties.createdAt ?? new Date();
   }
+
+  updateName(value: string): void {
+    this.name = value;
+  }
+
+  updatePassword(value: string): void {
+    this.password = value;
+  }
+
   get name(): string {
     return this.properties.name;
+  }
+
+  private set name(value: string) {
+    this.properties.name = value;
   }
 
   get email(): string {
@@ -25,6 +38,10 @@ export class UserEntity extends Entity<IUserProperties> {
 
   get password(): string {
     return this.properties.password;
+  }
+
+  private set password(value: string) {
+    this.properties.password = value;
   }
 
   get createdAt(): Date {
