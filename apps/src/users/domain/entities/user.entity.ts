@@ -1,4 +1,4 @@
-import { Entity } from 'apps/src/shared/domain/entities/entity';
+import { Entity } from '@/shared/domain/entities/entity';
 
 export type IUserProperties = {
   name: string;

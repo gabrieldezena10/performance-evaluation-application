@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
+import { UserDataBuilder } from '@/users/domain/testing/helpers/user-data-builder';
 import { IUserProperties, UserEntity } from '../../user.entity';
-import { UserDataBuilder } from '../../../testing/helpers/user-data-builder';
+
 describe('User entity unit tests', () => {
   let userProperties: IUserProperties;
   let user: UserEntity;
