@@ -12,9 +12,7 @@
     "outDir": "./dist/apps",
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "apps/src/*"
-      ]
+      "@/*": ["apps/src/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
