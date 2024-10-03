@@ -15,6 +15,7 @@ export class UserRules {
   @IsNotEmpty()
   name: string;
 
+  @MaxLength(255)
   @IsEmail()
   @IsString()
   @IsNotEmpty()
