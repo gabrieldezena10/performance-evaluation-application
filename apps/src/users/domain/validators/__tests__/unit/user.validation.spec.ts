@@ -151,4 +151,19 @@ describe('[unit] User Validator tests', () => {
       ]);
     });
   });
+
+  describe('CreatedAt field', () => {
+    it('should validate with errors', () => {
+      const isValid = sut.validate({
+        name: 'Tests name',
+        password: '123456',
+        email: 'email@example.com',
+        createdAt: 10 as any,
+      });
+      expect(isValid).toBeFalsy();
+      expect(sut.errors['createdAt']).toStrictEqual([
+        'createdAt must be a Date instance',
+      ]);
+    });
+  });
 });
