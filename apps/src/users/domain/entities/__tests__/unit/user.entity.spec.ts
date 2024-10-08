@@ -7,11 +7,13 @@ describe('User entity unit tests', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    UserEntity.validate = jest.fn();
     userProperties = UserDataBuilder().build();
 
     user = new UserEntity(userProperties);
   });
   it('Constructor method', () => {
+    expect(UserEntity.validate).toHaveBeenCalledTimes(1);
     expect(user.properties.name).toBe(userProperties.name);
     expect(user.properties.email).toBe(userProperties.email);
     expect(user.properties.password).toBe(userProperties.password);
@@ -52,11 +54,13 @@ describe('User entity unit tests', () => {
 
   it('Should update a user', () => {
     user.updateName('other name');
+    expect(UserEntity.validate).toHaveBeenCalledTimes(2);
     expect(user.properties.name).toEqual('other name');
   });
 
   it('Should update the password field', () => {
     user.updatePassword('other password');
+    expect(UserEntity.validate).toHaveBeenCalledTimes(2);
     expect(user.properties.password).toEqual('other password');
   });
 });
